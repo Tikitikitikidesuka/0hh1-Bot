@@ -32,7 +32,7 @@ public class FillTwoInARowFringe extends SolvingStrategy {
                         board.invertTile(x + 1, y);
                         filled++;
                     }
-                    if(x - 2 > 0 && board.isTileEmpty(x - 2, y)) {
+                    if(x - 2 >= 0 && board.isTileEmpty(x - 2, y)) {
                         board.setTileType(x - 2, y, board.getTileType(x, y));
                         board.invertTile(x - 2, y);
                         filled++;
@@ -44,6 +44,11 @@ public class FillTwoInARowFringe extends SolvingStrategy {
                             !board.isTileEmpty(x, y) &&
                             board.getTileType(x, y) == board.getTileType(x + 1, y);
                 }
+            }
+            if(doubleFound && board.isTileEmpty(size - 3, y)) {
+                board.setTileType(size - 3, y, board.getTileType(size - 2, y));
+                board.invertTile(size - 3, y);
+                filled++;
             }
         }
 
@@ -63,7 +68,7 @@ public class FillTwoInARowFringe extends SolvingStrategy {
                         board.invertTile(x, y + 1);
                         filled++;
                     }
-                    if(y - 2 > 0 && board.isTileEmpty(x, y - 2)) {
+                    if(y - 2 >= 0 && board.isTileEmpty(x, y - 2)) {
                         board.setTileType(x, y - 2, board.getTileType(x, y));
                         board.invertTile(x, y - 2);
                         filled++;
@@ -75,6 +80,11 @@ public class FillTwoInARowFringe extends SolvingStrategy {
                             !board.isTileEmpty(x, y) &&
                                     board.getTileType(x, y) == board.getTileType(x, y + 1);
                 }
+            }
+            if(doubleFound && board.isTileEmpty(x, size - 3)) {
+                board.setTileType(x, size - 3, board.getTileType(x, size - 2));
+                board.invertTile(x, size - 3);
+                filled++;
             }
         }
 
