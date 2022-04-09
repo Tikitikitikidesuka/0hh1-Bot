@@ -11,7 +11,7 @@ public class Bot {
 
     private static final SolvingStrategy[] SOLVING_STRATEGIES = {
             new FillTwoInARowFringe(),
-            new FillInBetweenFringe(),
+            new FillInBetweenTwo(),
             new EqualNumberPerLine(),
             new AvoidTwoSameLines()
     };
