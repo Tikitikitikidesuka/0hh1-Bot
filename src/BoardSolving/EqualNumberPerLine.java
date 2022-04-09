@@ -17,6 +17,8 @@ public class EqualNumberPerLine extends SolvingStrategy {
         filled += this.equalNumberPerLineHorz(board);
         filled += this.equalNumberPerLineVert(board);
 
+        System.out.println("XD: " + filled);
+
         return filled;
     }
 
@@ -41,8 +43,10 @@ public class EqualNumberPerLine extends SolvingStrategy {
                     fillType = TileType.COLOR_A;
 
                 for(int x = 0; x < size; x++) {
-                    if(board.isTileEmpty(x, y))
+                    if(board.isTileEmpty(x, y)) {
                         board.setTileType(x, y, fillType);
+                        filled++;
+                    }
                 }
             }
         }
@@ -71,8 +75,10 @@ public class EqualNumberPerLine extends SolvingStrategy {
                     fillType = TileType.COLOR_A;
 
                 for(int y = 0; y < size; y++) {
-                    if(board.isTileEmpty(x, y))
+                    if(board.isTileEmpty(x, y)) {
                         board.setTileType(x, y, fillType);
+                        filled++;
+                    }
                 }
             }
         }
