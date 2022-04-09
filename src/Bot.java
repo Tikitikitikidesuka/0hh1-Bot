@@ -1,3 +1,4 @@
+import BoardIO.BoardClickOutput;
 import BoardIO.ImageToBoard;
 import BoardSolving.*;
 import GameBoard.Board;
@@ -36,11 +37,20 @@ public class Bot {
         Rectangle rectangle = new Rectangle(1280, 0, dimension.width, dimension.height);
         BufferedImage image = robot.createScreenCapture(rectangle);
 
-        this.board = ImageToBoard.bufferedImageToBoard(image);
+        ImageToBoard.BoardAndInfo boardAndInfo = ImageToBoard.bufferedImageToBoard(image);
+        this.board = boardAndInfo.board;
         this.initialBoard = new Board(this.board);
+        Point boardScreenOrigin = boardAndInfo.boardScreenOrigin;
+        int boardScreenTileDistance = boardAndInfo.boardScreenTileDistance;
 
         this.solveBoard();
         this.printBoard();
+
+        BoardClickOutput.clickOutputBoard(
+                this.initialBoard, this.board,
+                boardScreenOrigin, boardScreenTileDistance,
+                robot
+        );
     }
 
     /**
@@ -51,9 +61,9 @@ public class Bot {
         do {
             filled = 0;
             for(SolvingStrategy solvingStrategy : SOLVING_STRATEGIES) {
-                filled += solvingStrategy.executeSolveStrategy(board);
+                filled += solvingStrategy.executeSolveStrategy(this.board);
             }
-            System.out.println(board);
+            System.out.println(this.board);
         } while(filled > 0);
     }
 

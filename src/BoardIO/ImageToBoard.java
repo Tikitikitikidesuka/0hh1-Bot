@@ -11,11 +11,26 @@ import java.util.TreeMap;
 
 public class ImageToBoard {
     /**
-     * Generates a Board object from an image of the game's board.
-     * @param image image of the game's board
-     * @return Board object with the same state as the game's board
+     * Wrapper for a board and its info,
+     * specifically the screen origin of the board and the screen distance between contiguous tiles
      */
-    public static Board bufferedImageToBoard(BufferedImage image) {
+    public static class BoardAndInfo {
+        public Board board;
+        public Point boardScreenOrigin;
+        public int boardScreenTileDistance;
+
+        public BoardAndInfo(Board board, Point origin, int distance) {
+            this.board = board;
+            this.boardScreenOrigin = origin;
+            this.boardScreenTileDistance = distance;
+        }
+    }
+    /**
+     * Generates a BoardAndInfo object from an image of the game's board.
+     * @param image image of the game's board
+     * @return BoardAndInfo object containing a board with the same state as the game's board
+     */
+    public static BoardAndInfo bufferedImageToBoard(BufferedImage image) {
         int size = 12;
 
         Board board = new Board(size);
@@ -32,7 +47,7 @@ public class ImageToBoard {
             }
         }
 
-        return board;
+        return new BoardAndInfo(board, origin, distance);
     }
 
     private static TileType getImageTileType(int x, int y, Point origin, int distance, BufferedImage image) {
