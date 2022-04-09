@@ -13,8 +13,8 @@ public class FillInBetweenTwo extends SolvingStrategy {
     public int executeSolveStrategy(Board board) {
         int filled = 0;
 
-        filled += fillInBetweenTwoHorz(board);
-        filled += fillInBetweenTwoVert(board);
+        filled += this.fillInBetweenTwoHorz(board);
+        filled += this.fillInBetweenTwoVert(board);
 
         return filled;
     }

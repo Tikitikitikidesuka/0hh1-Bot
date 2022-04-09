@@ -13,8 +13,8 @@ public class FillTwoInARowFringe extends SolvingStrategy {
     public int executeSolveStrategy(Board board) {
         int filled = 0;
 
-        filled += fillTwoInARowFringeHorz(board);
-        filled += fillTwoInARowFringeVert(board);
+        filled += this.fillTwoInARowFringeHorz(board);
+        filled += this.fillTwoInARowFringeVert(board);
 
         return filled;
     }
