@@ -11,6 +11,41 @@ public class FillTwoInARowFringe extends SolvingStrategy {
      */
     @Override
     public int executeSolveStrategy(Board board) {
-        return 0;
+        int filled = 0;
+
+        filled += fillTwoInARowFringeHorz(board);
+
+        return filled;
+    }
+
+    public int fillTwoInARowFringeHorz(Board board) {
+        int filled = 0;
+
+        int size = board.getSize();
+        for(int y = 0; y < size; y++) {
+            boolean doubleFound = false;
+            for(int x = 0; x < size - 1; x++) {
+                if(doubleFound) {
+                    if(board.isTileEmpty(x + 1, y)) {
+                        board.setTileType(x + 1, y, board.getTileType(x, y));
+                        board.invertTile(x + 1, y);
+                        filled++;
+                    }
+                    if(x - 2 > 0 && board.isTileEmpty(x - 2, y)) {
+                        board.setTileType(x - 2, y, board.getTileType(x, y));
+                        board.invertTile(x - 2, y);
+                        filled++;
+                    }
+                    doubleFound = false;
+                }
+                else {
+                    doubleFound =
+                            !board.isTileEmpty(x, y) &&
+                            board.getTileType(x, y) == board.getTileType(x + 1, y);
+                }
+            }
+        }
+
+        return filled;
     }
 }

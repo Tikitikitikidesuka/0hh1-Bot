@@ -37,7 +37,15 @@ public class Tile {
     }
 
     /**
-     * Inverts the tile type.
+     * Returns true if the tile is empty.
+     * @return true if tile is empty
+     */
+    public boolean isEmpty() {
+        return this.type == TileType.EMPTY;
+    }
+
+    /**
+     * Inverts the tile type if it isn't empty.
      * If the tile was of type COLOR_B it becomes of type COLOR_A and vice-versa.
      */
     public void invert() {

@@ -62,6 +62,25 @@ public class Board {
     }
 
     /**
+     * Returns true if the tile at (x, y) is empty.
+     * @param x horizontal position of the tile
+     * @param y vertical position of the tile
+     * @return true if the tile at (x, y) is empty
+     */
+    public boolean isTileEmpty(int x, int y) {
+        return this.matrix[y][x].isEmpty();
+    }
+
+    /**
+     * Inverts the tile at (x, y) if it isn't empty.
+     * @param x horizontal position of the tile
+     * @param y vertical position of the tile
+     */
+    public void invertTile(int x, int y) {
+        this.matrix[y][x].invert();
+    }
+
+    /**
      * Returns a string representation of the board's state.
      * @return string representation of the board's state
      */
