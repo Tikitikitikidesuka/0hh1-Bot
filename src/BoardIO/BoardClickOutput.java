@@ -36,7 +36,7 @@ public class BoardClickOutput {
 
     /**
      * Overload of the clickOutputBoard method which sets the clickDelay to zero by default.
-     * @param initialBoard board containing the state of the beginning of the game
+     * @param initialBoard board containing the initial state of the game
      * @param board board containing the desired state to output
      * @param boardOrigin point of the viewport where the top left corner of the game board is
      * @param tileDistance distance between two tiles on the screen
