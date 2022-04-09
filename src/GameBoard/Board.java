@@ -1,7 +1,7 @@
 package GameBoard;
 
 public class Board {
-    private Tile[][] matrix;
+    private final Tile[][] matrix;
 
 
     /**
@@ -9,10 +9,26 @@ public class Board {
      * @param size size of the board's side
      */
     public Board(int size) {
-        matrix = new Tile[size][size];
+        this.matrix = new Tile[size][size];
         for(int y = 0; y < size; y++) {
             for(int x = 0; x < size; x++) {
-                matrix[y][x] = new Tile();
+                this.matrix[y][x] = new Tile();
+            }
+        }
+    }
+
+    /**
+     * Constructor for class Board. Clones another board.
+     * @param copyBoard board to clone
+     */
+    public Board(Board copyBoard) {
+        int size = copyBoard.getSize();
+        this.matrix = new Tile[size][size];
+        for(int y = 0; y < size; y++) {
+            for(int x = 0; x < size; x++) {
+                this.matrix[y][x] = new Tile(
+                        copyBoard.getTileType(x, y)
+                );
             }
         }
     }
@@ -22,7 +38,7 @@ public class Board {
      * @return size of the board's side
      */
     public int getSize() {
-        return matrix.length;
+        return this.matrix.length;
     }
 
     /**
@@ -52,7 +68,7 @@ public class Board {
     @Override
     public String toString() {
         StringBuilder output = new StringBuilder();
-        for(Tile[] row : matrix) {
+        for(Tile[] row : this.matrix) {
             for(Tile tile  : row) {
                 output.append(tile.toString());
             }

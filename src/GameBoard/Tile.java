@@ -12,6 +12,15 @@ public class Tile {
     }
 
     /**
+     * Constructor for class Board.
+     * @param type type to set
+     */
+    public Tile(TileType type) {
+        this.type = type;
+    }
+
+
+    /**
      * Returns the tile's type.
      * @return type of the tile
      */
