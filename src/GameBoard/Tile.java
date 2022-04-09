@@ -5,7 +5,7 @@ public class Tile {
 
 
     /**
-     * Constructor for class Board. Sets type to TileType.EMTPY.
+     * Constructor for class Tile. Sets type to TileType.EMTPY.
      */
     public Tile() {
         this.type = TileType.EMPTY;
