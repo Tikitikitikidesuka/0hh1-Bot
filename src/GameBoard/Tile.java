@@ -13,7 +13,7 @@ public class Tile {
 
     /**
      * Returns the tile's type.
-     * @return type of the tile.
+     * @return type of the tile
      */
     public TileType getType() {
         return this.type;
@@ -21,7 +21,7 @@ public class Tile {
 
     /**
      * Sets the tile's type.
-     * @param type type to set.
+     * @param type type to set
      */
     public void setType(TileType type) {
         this.type = type;
@@ -40,7 +40,7 @@ public class Tile {
 
     /**
      * Returns a string representation of the tiles's type.
-     * @return string representation of the tile's type.
+     * @return string representation of the tile's type
      */
     @Override
     public String toString() {

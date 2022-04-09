@@ -6,7 +6,7 @@ public class Board {
 
     /**
      * Constructor for class Board.
-     * @param size size of the board's side.
+     * @param size size of the board's side
      */
     public Board(int size) {
         matrix = new Tile[size][size];
@@ -19,15 +19,35 @@ public class Board {
 
     /**
      * Returns the size of the board's side.
-     * @return size of the board's side.
+     * @return size of the board's side
      */
     public int getSize() {
         return matrix.length;
     }
 
     /**
+     * Returns the type of the tile at (x, y).
+     * @param x horizontal position of the tile
+     * @param y vertical position of the tile
+     * @return type of the tile at (x, y)
+     */
+    public TileType getTileType(int x, int y) {
+        return this.matrix[y][x].getType();
+    }
+
+    /**
+     * Sets the type of the tile at (x, y).
+     * @param x horizontal position of the tile
+     * @param y vertical position of the tile
+     * @param type type to set
+     */
+    public void setTileType(int x, int y, TileType type) {
+        this.matrix[y][x].setType(type);
+    }
+
+    /**
      * Returns a string representation of the board's state.
-     * @return string representation of the board's state.
+     * @return string representation of the board's state
      */
     @Override
     public String toString() {
