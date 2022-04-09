@@ -1,4 +1,4 @@
-package BoardScanner;
+package BoardIO;
 
 import GameBoard.Board;
 import GameBoard.TileType;
