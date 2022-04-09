@@ -7,8 +7,8 @@ import java.awt.*;
 import java.awt.image.BufferedImage;
 
 public class Bot {
-    private final Board board;
-    private final Board initialBoard;
+    private Board board;
+    private Board initialBoard;
 
     private static final SolvingStrategy[] SOLVING_STRATEGIES = {
             new FillTwoInARowFringe(),
@@ -20,9 +20,13 @@ public class Bot {
 
     public static void main(String[] args) {
         Bot bot = new Bot();
+        bot.run();
     }
 
-    public Bot() {
+    /**
+     * Runs the bot.
+     */
+    private void run() {
         Robot robot = null;
         try {
             robot = new Robot();
@@ -56,7 +60,7 @@ public class Bot {
     /**
      * Fills the board with a valid solution.
      */
-    public void solveBoard() {
+    private void solveBoard() {
         int filled;
         do {
             filled = 0;
@@ -70,14 +74,14 @@ public class Bot {
     /**
      * Prints a string representation of the board's state.
      */
-    public void printBoard() {
+    private void printBoard() {
         System.out.println("Game board:\n" + this.board);
     }
 
     /**
      * Prints a string representation of the initial board's state.
      */
-    public void printInitialBoard() {
+    private void printInitialBoard() {
         System.out.println("Inital game board:\n" + this.initialBoard);
     }
 }
