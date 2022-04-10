@@ -36,19 +36,26 @@ public class BotConfigManager {
     private static Properties loadConfigProperties() {
         Properties properties = new Properties();
         try {
-            String configFilePath = getProgramDirectory() + "/" + configFileName;
-            FileInputStream fileInputStream = new FileInputStream(configFilePath);
-            properties.load(fileInputStream);
+            properties = attemptLoadConfigProperties();
         } catch (IOException exception) {
             System.out.println("WARNING: No config file found.");
             System.out.println("Creating a config file...");
             try {
                 createDefaultConfigFile();
+                properties = attemptLoadConfigProperties();
             } catch (IOException ioException) {
                 System.out.println("ERROR: Could not create config file.");
                 System.exit(1);
             }
         }
+        return properties;
+    }
+
+    private static Properties attemptLoadConfigProperties() throws IOException{
+        String configFilePath = getProgramDirectory() + "/" + configFileName;
+        FileInputStream fileInputStream = new FileInputStream(configFilePath);
+        Properties properties = new Properties();
+        properties.load(fileInputStream);
         return properties;
     }
 
