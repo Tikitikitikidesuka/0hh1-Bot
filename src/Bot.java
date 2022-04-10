@@ -3,8 +3,11 @@ import BoardIO.ImageToBoard;
 import BoardSolving.*;
 import GameBoard.Board;
 
+import javax.imageio.ImageIO;
 import java.awt.*;
 import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
 
 public class Bot {
     private Board board;
@@ -41,8 +44,14 @@ public class Bot {
 
         Toolkit toolkit = Toolkit.getDefaultToolkit();
         Dimension dimension = toolkit.getScreenSize();
-        Rectangle rectangle = new Rectangle(1280, 0, dimension.width, dimension.height);
+        Rectangle rectangle = new Rectangle(xScreenOffset, 0, dimension.width, dimension.height);
         BufferedImage image = robot.createScreenCapture(rectangle);
+        File outputfile = new File("image.jpg");
+        try {
+            ImageIO.write(image, "jpg", outputfile);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 
         ImageToBoard.BoardAndInfo boardAndInfo = ImageToBoard.bufferedImageToBoard(image);
         this.board = boardAndInfo.board;
