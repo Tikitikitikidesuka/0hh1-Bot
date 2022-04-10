@@ -62,7 +62,7 @@ public class BotConfigManager {
     }
 
     private static Properties attemptLoadConfigProperties() throws IOException{
-        String configFilePath = getProgramDirectory() + "/" + configFileName;
+        String configFilePath = "./" + configFileName;
         FileInputStream fileInputStream = new FileInputStream(configFilePath);
         Properties properties = new Properties();
         properties.load(fileInputStream);
@@ -73,37 +73,10 @@ public class BotConfigManager {
         InputStream fileInputStream =
                 BotConfigManager.class.getClassLoader().getResourceAsStream(defaultConfigFileName);
 
-        String programDirectory;
-        try {
-            programDirectory = getProgramDirectory();
-        } catch (IOException exception) {
-            System.out.println("ERROR: Could not fetch the program directory.");
-            exception.printStackTrace();
-            throw new IOException();
-        }
-
-
         if(fileInputStream != null) {
-            Files.copy(fileInputStream, Path.of(programDirectory + "/" + configFileName));
+            Files.copy(fileInputStream, Path.of("./" + configFileName));
         } else {
             throw new IOException();
         }
-    }
-
-    private static String getProgramDirectory() throws IOException {
-        String programPath;
-        try {
-            programPath = BotConfigManager.class
-                    .getProtectionDomain()
-                    .getCodeSource()
-                    .getLocation()
-                    .toURI()
-                    .getPath();
-        } catch (URISyntaxException exception) {
-            exception.printStackTrace();
-            throw new IOException();
-        }
-
-        return programPath.substring(0, programPath.lastIndexOf("/") + 1);
     }
 }
