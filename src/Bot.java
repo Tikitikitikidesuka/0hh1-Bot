@@ -48,7 +48,6 @@ public class Bot {
         int boardScreenTileDistance = boardAndInfo.boardScreenTileDistance;
 
         this.solveBoard();
-        this.printBoard();
 
         BoardClickOutput.clickOutputBoard(
                 this.initialBoard, this.board,
@@ -67,7 +66,6 @@ public class Bot {
             for(SolvingStrategy solvingStrategy : SOLVING_STRATEGIES) {
                 filled += solvingStrategy.executeSolveStrategy(this.board);
             }
-            System.out.println(this.board);
         } while(filled > 0);
     }
 
