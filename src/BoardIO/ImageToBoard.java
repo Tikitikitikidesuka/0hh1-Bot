@@ -37,9 +37,6 @@ public class ImageToBoard {
 
         Board board = new Board(size);
 
-        System.out.println(origin);
-        System.out.println(distance);
-
         for(int y = 0; y < size; y++) {
             for(int x = 0; x < size; x++) {
                 board.setTileType(x, y, getImageTileType(x, y, origin, distance, image));

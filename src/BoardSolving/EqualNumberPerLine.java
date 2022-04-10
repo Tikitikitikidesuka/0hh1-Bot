@@ -17,8 +17,6 @@ public class EqualNumberPerLine extends SolvingStrategy {
         filled += this.equalNumberPerLineHorz(board);
         filled += this.equalNumberPerLineVert(board);
 
-        System.out.println("XD: " + filled);
-
         return filled;
     }
 
