@@ -46,12 +46,6 @@ public class Bot {
         Dimension dimension = toolkit.getScreenSize();
         Rectangle rectangle = new Rectangle(xScreenOffset, 0, dimension.width, dimension.height);
         BufferedImage image = robot.createScreenCapture(rectangle);
-        File outputfile = new File("image.jpg");
-        try {
-            ImageIO.write(image, "jpg", outputfile);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
 
         ImageToBoard.BoardAndInfo boardAndInfo = ImageToBoard.bufferedImageToBoard(image);
         this.board = boardAndInfo.board;
