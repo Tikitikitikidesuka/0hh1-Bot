@@ -31,12 +31,11 @@ public class ImageToBoard {
      * @return BoardAndInfo object containing a board with the same state as the game's board
      */
     public static BoardAndInfo bufferedImageToBoard(BufferedImage image) {
-        int size = 12;
-
-        Board board = new Board(size);
-
         Point origin = getBoardPixelOrigin(image);
         int distance = getTilePixelDistance(image, origin);
+        int size = getBoardSize(image, origin, distance);
+
+        Board board = new Board(size);
 
         System.out.println(origin);
         System.out.println(distance);
@@ -95,6 +94,16 @@ public class ImageToBoard {
         }
 
         return x - origin.x;
+    }
+
+    private static int getBoardSize(BufferedImage image, Point origin, int distance) {
+        int size = 1;
+        int x = origin.x + distance;
+        while(x < image.getWidth() && !isBackgroundColor(image.getRGB(x, origin.y))) {
+            x += distance;
+            size++;
+        }
+        return size;
     }
 
 
