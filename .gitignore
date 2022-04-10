@@ -1,6 +1,7 @@
 # IntelliJ Idea files and directories
-/.idea
+.idea/
 *.iml
 
-# Out directory
-/out
+# Local info
+META-INF/
+out/
