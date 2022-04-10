@@ -18,13 +18,14 @@ public class BoardClickOutput {
     public static void clickOutputBoard(
             Board initialBoard, Board board,
             Point boardOrigin, int tileDistance,
-            Robot robot, int clickDelay
+            Robot robot, int clickDelay,
+            int xScreenOffset
     ) {
         int size = board.getSize();
         for(int y = 0; y < size; y++) {
             for(int x = 0; x < size; x++) {
                 if(initialBoard.isTileEmpty(x, y)) {
-                    moveMouseToTile(x, y, boardOrigin, tileDistance, robot);
+                    moveMouseToTile(x, y, boardOrigin, tileDistance, robot, xScreenOffset);
                     switch(board.getTileType(x, y)) {
                         case COLOR_A -> rightClick(robot, clickDelay);
                         case COLOR_B -> leftClick(robot, clickDelay);
@@ -50,21 +51,22 @@ public class BoardClickOutput {
         clickOutputBoard(
                 initialBoard, board,
                 boardOrigin, tileDistance,
-                robot, 0
+                robot, 0,
+                0
         );
     }
 
-    private static void moveMouseToTile(int x, int y, Point boardOrigin, int tileDistance, Robot robot) {
-        Point coords = getTileScreenCoords(x, y, boardOrigin, tileDistance);
+    private static void moveMouseToTile(int x, int y, Point boardOrigin, int tileDistance, Robot robot, int xOffset) {
+        Point coords = getTileScreenCoords(x, y, boardOrigin, tileDistance, xOffset);
         robot.mouseMove(
                 coords.x,
                 coords.y
         );
     }
 
-    private static Point getTileScreenCoords(int x, int y, Point boardOrigin, int tileDistance) {
+    private static Point getTileScreenCoords(int x, int y, Point boardOrigin, int tileDistance, int xOffset) {
         return new Point(
-                1280 + boardOrigin.x + tileDistance/2 + x*tileDistance,
+                xOffset + boardOrigin.x + tileDistance/2 + x*tileDistance,
                 boardOrigin.y + tileDistance/2 + y*tileDistance
         );
     }

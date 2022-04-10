@@ -10,6 +10,9 @@ public class Bot {
     private Board board;
     private Board initialBoard;
 
+    private int clickSpeed;
+    private int xScreenOffset;
+
     private static final SolvingStrategy[] SOLVING_STRATEGIES = {
             new FillTwoInARowFringe(),
             new FillInBetweenTwo(),
@@ -19,7 +22,7 @@ public class Bot {
 
 
     public static void main(String[] args) {
-        Bot bot = new Bot();
+        Bot bot = BotConfigManager.generateBotFromConfig();
         bot.run();
     }
 
@@ -52,7 +55,8 @@ public class Bot {
         BoardClickOutput.clickOutputBoard(
                 this.initialBoard, this.board,
                 boardScreenOrigin, boardScreenTileDistance,
-                robot
+                robot, this.clickSpeed,
+                this.xScreenOffset
         );
     }
 
@@ -81,5 +85,38 @@ public class Bot {
      */
     private void printInitialBoard() {
         System.out.println("Inital game board:\n" + this.initialBoard);
+    }
+
+
+    /**
+     * Returns the click speed.
+     * @return click speed
+     */
+    public int getClickSpeed() {
+        return clickSpeed;
+    }
+
+    /**
+     * Sets the click speed.
+     * @param clickSpeed click speed to set
+     */
+    public void setClickSpeed(int clickSpeed) {
+        this.clickSpeed = clickSpeed;
+    }
+
+    /**
+     * Returns the horizontal screen offset.
+     * @return horizontal screen offset
+     */
+    public int getxScreenOffset() {
+        return xScreenOffset;
+    }
+
+    /**
+     * Sets the horizontal screen offset.
+     * @param xScreenOffset horizontal screen offset
+     */
+    public void setxScreenOffset(int xScreenOffset) {
+        this.xScreenOffset = xScreenOffset;
     }
 }
