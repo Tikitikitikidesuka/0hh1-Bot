@@ -12,18 +12,28 @@ public class BotConfigManager {
         Bot bot = new Bot();
 
         Properties properties = loadConfigProperties();
+
+        int clickSpeed = 0;
         try {
-            bot.setClickSpeed(Integer.parseInt(properties.getProperty("click_speed")));
+            clickSpeed = Integer.parseInt(properties.getProperty("click_speed"));
         } catch (NumberFormatException exception) {
             printFieldFormatError("click_speed");
             System.exit(1);
         }
+        if(clickSpeed < 0 || clickSpeed > 60000) {
+            System.out.println("WARNING: Invalid click speed, defaulting to 0.");
+            clickSpeed = 0;
+        }
+        bot.setClickSpeed(clickSpeed);
+
+        int xScreenOffset = 0;
         try {
-            bot.setxScreenOffset(Integer.parseInt(properties.getProperty("x_screen_offset")));
+            xScreenOffset = Integer.parseInt(properties.getProperty("x_screen_offset"));
         } catch (NumberFormatException exception) {
             printFieldFormatError("x_screen_offset");
             System.exit(1);
         }
+        bot.setxScreenOffset(xScreenOffset);
 
         return bot;
     }
