@@ -21,9 +21,9 @@
   <p align="center">
     A bot for the game 0h h1
     <br />
-    <a href="https://github.com/othneildrew/Best-README-Template/issues">Report Bug</a>
+    <a href="https://github.com/Tikitikitikidesuka/0hh1-Bot/issues">Report Bug</a>
     ·
-    <a href="https://github.com/othneildrew/Best-README-Template/issues">Request Feature</a>
+    <a href="https://github.com/Tikitikitikidesuka/0hh1-Bot/issues">Request Feature</a>
   </p>
 </div>
 
