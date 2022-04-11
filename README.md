@@ -12,7 +12,7 @@
 <!-- PROJECT LOGO -->
 <br />
 <div align="center">
-  <a href="https://github.com/othneildrew/Best-README-Template">
+  <a href="https://github.com/Tikitikitikidesuka/0hh1-Bot">
     <img src="docs/assets/logo.svg" alt="Logo" width="100" height="100">
   </a>
 
