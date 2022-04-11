@@ -150,7 +150,7 @@ Distributed under the MIT License. See `LICENSE.txt` for more information.
 <!-- CONTACT -->
 ## Contact
 
-Your Name - deesneakygerbil@example.com
+Tikitikitikidesuka - deesneakygerbil@example.com
 
 Project Link: [https://github.com/tikitikitikidesuka/0hh1-bot](https://github.com/tikitikitikidesuka/0hh1-bot)
 
