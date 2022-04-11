@@ -105,7 +105,7 @@ java -jar 0hh1-Bot.jar
 A config file is created on the first run.
 
 - `click_speed`: Sets the speed of the clicks in milliseconds.
-- `x_screen_offset`: Sets the screen horizontal offset. Only necessary for linux multi-monitor setups.
+- `x_screen_offset`: Sets the screen horizontal offset. Only necessary for multi-monitor linux setups.
   (more info in the config file)
 
 <p align="right">(<a href="#top">back to top</a>)</p>
