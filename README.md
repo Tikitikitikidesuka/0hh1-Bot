@@ -161,8 +161,6 @@ Project Link: [https://github.com/tikitikitikidesuka/0hh1-bot](https://github.co
 <!-- ACKNOWLEDGMENTS -->
 ## Acknowledgments
 
-Use this space to list resources you find helpful and would like to give credit to. I've included a few of my favorites to kick things off!
-
 * [0h h1 Game](https://0hh1.com/)
 * [README.md Template](https://github.com/othneildrew/Best-README-Template/blob/master/README.md)
 
